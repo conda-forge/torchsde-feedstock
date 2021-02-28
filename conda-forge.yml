@@ -1,3 +1,3 @@
 channel_priority: flexible
-build_with_mambabuild: true
+build_with_mambabuild: false
 conda_forge_output_validation: true
