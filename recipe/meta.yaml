@@ -11,7 +11,7 @@ source:
 
 build:
   skip: True  # [win and (py<37 or py>38)]
-  number: 2
+  number: 3
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
@@ -25,11 +25,11 @@ requirements:
     - python
     - blist
     - boltons >=20.2.1
-    - numpy ~=1.19.0
+    - numpy >=1.19.0
     - pytorch >=1.6.0
     - trampoline >=0.1.2
     - typing_extensions
-    - scipy ~=1.5.0
+    - scipy >=1.5.0
 
 test:
   imports:
