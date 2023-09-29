@@ -16,7 +16,7 @@ build:
 
 requirements:
   build:
-    - python >=3.8
+    - python
     - {{ compiler('cxx') }}
   host:
     - python
