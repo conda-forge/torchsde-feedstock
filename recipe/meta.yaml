@@ -1,29 +1,29 @@
 {% set name = "torchsde" %}
-{% set version = "0.2.4" %}
+{% set version = "0.2.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/google-research/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 8a4f1f7dd3011bf6b3a1a8c97b9e8ab4093da79b863a83e022d00dd677cc0b7d
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 81d074d3504f9d190f1694fb526395afbe4608ee43a88adb1262a639e5b4778b
 
 build:
-  skip: True  # [win and (py<37 or py>38)]
-  number: 3
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
+  string: "{{ target_platform | replace('-', '') }}"
 
 requirements:
   build:
+    - python >=3.8
     - {{ compiler('cxx') }}
   host:
-    - python
+    - python >=3.8
     - pip
     - setuptools >=40.8.0
   run:
-    - python
-    - blist
+    - python >=3.8
     - boltons >=20.2.1
     - numpy >=1.19.0
     - pytorch >=1.6.0
@@ -34,6 +34,10 @@ requirements:
 test:
   imports:
     - torchsde
+    - torchsde._brownian
+    - torchsde._core
+    - torchsde._core.methods
+    - torchsde._core.methods.tableaus
 
 about:
   home: https://github.com/google-research/torchsde
@@ -41,8 +45,7 @@ about:
   license_family: APACHE
   license_file: LICENSE
   summary: 'SDE solvers and stochastic adjoint sensitivity analysis in PyTorch.'
-  description: |
-    SDE solvers and stochastic adjoint sensitivity analysis in PyTorch.
+  description: SDE solvers and stochastic adjoint sensitivity analysis in PyTorch.
   doc_url: https://github.com/google-research/torchsde
   dev_url: https://github.com/google-research/torchsde
 
@@ -50,3 +53,4 @@ extra:
   recipe-maintainers:
     - krisevans
     - dhirschfeld
+    - sdy623

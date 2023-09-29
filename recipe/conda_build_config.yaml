@@ -1,0 +1,4 @@
+python:
+  - 3.8
+channel_sources: defaults, conda-forge
+channel_targets: conda-forge main
