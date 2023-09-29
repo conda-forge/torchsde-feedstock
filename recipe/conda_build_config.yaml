@@ -1,4 +1,6 @@
 python:
-  - 3.8
+  - 3.8.* *_cpython
+numpy:
+  - 1.22
 channel_sources: defaults, conda-forge
 channel_targets: conda-forge main
