@@ -19,7 +19,7 @@ requirements:
     - python >=3.8
     - {{ compiler('cxx') }}
   host:
-    - python >=3.8
+    - python
     - pip
     - setuptools >=40.8.0
   run:
