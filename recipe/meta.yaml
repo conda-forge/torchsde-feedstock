@@ -10,9 +10,9 @@ source:
   sha256: 81d074d3504f9d190f1694fb526395afbe4608ee43a88adb1262a639e5b4778b
 
 build:
+  skip: True  # [py<38]
   number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
-  string: "{{ target_platform | replace('-', '') }}"
 
 requirements:
   build:
