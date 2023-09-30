@@ -23,7 +23,7 @@ requirements:
     - pip
     - setuptools >=40.8.0
   run:
-    - python >=3.8
+    - python
     - boltons >=20.2.1
     - numpy >=1.19.0
     - pytorch >=1.6.0
