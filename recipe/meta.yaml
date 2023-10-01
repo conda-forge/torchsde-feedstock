@@ -24,11 +24,9 @@ requirements:
     - setuptools >=40.8.0
   run:
     - python
-    - boltons >=20.2.1
     - numpy >=1.19.0
     - pytorch >=1.6.0
     - trampoline >=0.1.2
-    - typing_extensions
     - scipy >=1.5.0
 
 test:
