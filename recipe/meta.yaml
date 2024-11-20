@@ -18,7 +18,7 @@ requirements:
   build:
     - python
     - {{ compiler('cxx') }}
-    - {{ stdlib("c") }
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
