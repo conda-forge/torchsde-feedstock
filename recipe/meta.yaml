@@ -6,24 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  url: "https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
   sha256: 81d074d3504f9d190f1694fb526395afbe4608ee43a88adb1262a639e5b4778b
 
 build:
-  skip: True  # [py<38]
-  number: 1
+  noarch: python
+  number: 2
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
-  build:
-    - python
-    - {{ compiler('cxx') }}
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools >=40.8.0
   run:
-    - python
+    - python >={{ python_min }}
     - numpy >=1.19.0
     - pytorch >=1.6.0
     - trampoline >=0.1.2
@@ -36,7 +33,11 @@ test:
     - torchsde._core
     - torchsde._core.methods
     - torchsde._core.methods.tableaus
-
+  commands:
+    - pip check
+  requires:
+    - pip
+    - python {{ python_min }}
 about:
   home: https://github.com/google-research/torchsde
   license: Apache-2.0
