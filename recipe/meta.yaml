@@ -37,7 +37,10 @@ test:
     - torchsde._core
     - torchsde._core.methods
     - torchsde._core.methods.tableaus
-
+  commands:
+    - pip check
+  requires:
+    - pip
 about:
   home: https://github.com/google-research/torchsde
   license: Apache-2.0
